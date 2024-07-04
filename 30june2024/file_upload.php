@@ -10,7 +10,7 @@
 
 	if(isset($_POST['submit'])){
 		$temp = $_FILES['photo']['tmp_name'];
-		$filename = $_FILES['photo']['name']; //saiful.jpg
+		$filename = $_FILES['photo']['name']; //saiful.JPG
 		$filedata = pathinfo($filename);
 		$file_ext = strtolower($filedata['extension']);
 		$allowed_ext= ["jpg", "jpeg", "png"]; 
@@ -38,7 +38,6 @@
 		
 
 	 ?>
-
 
 	<form action="" method="post" enctype="multipart/form-data">
 		<input type="text" name="name"><br>
