@@ -6,12 +6,15 @@
 	<title></title>
 </head>
 <body>
-
 	<?php 
-
 		if(isset($_REQUEST['submit'])){
 			$stid = $_REQUEST['stid'];
 
+			 show_result($stid);		
+		}
+
+		// Function 
+		function show_result($stid){
 			$datas = file('result.txt');
 			//echo "<pre>";
 			//print_r($datas);
@@ -20,9 +23,10 @@
 				$line = explode("|", $data);
 				list($id, $name, $score, $result) = $line;
 				if($id==$stid){
-					echo $id, $name, $score, $result;	
+					$output = "ID: ". $id . " Name: ". $name . " Score: " . $score . " Result: " . $result;	
 				} 
 			}
+			echo $output;
 		}
 
 	 ?>
