@@ -1,0 +1,70 @@
+SELECT * FROM `employees`;
+
+SELECT * FROM employees WHERE employeeNumber = 1088
+SELECT * FROM employees WHERE jobTitle = 'Sales Rep'
+
+SELECT employeeNumber, firstName, lastName from employees WHERE jobTitle = 'Sales Rep';
+
+SELECT employeeNumber, firstName, lastName, reportsTo from employees WHERE jobTitle = 'Sales Rep' AND reportsTo = 1102 ;
+
+SELECT firstName FROM employees ORDER BY firstName ASC;
+SELECT firstName, lastName FROM employees ORDER BY firstName DESC;
+SELECT * FROM employees ORDER BY firstName DESC;
+SELECT * FROM `employees` LIMIT 0, 5;
+
+SELECT `customerNumber`, `customerName`, city, country FROM customers WHERE `country` = 'USA' AND `city`= 'NYC' OR `city` = 'Allentown';
+
+SELECT productCode, productName, buyPrice FROM products WHERE buyPrice > 50 AND buyPrice < 100
+
+SELECT DISTINCT country FROM customers;
+
+SELECT employeeNumber, lastName, firstName, city, country FROM employees, offices, offices.officeCode WHERE offices.officeCode = employees.officeCode
+
+
+SELECT customers.customerNumber, customerName, orderNumber, orderDate, status FROM customers, orders WHERE customers.customerNumber = orders.customerNumber AND status != Shipped
+
+SELECT COUNT(orderNumber), status FROM orders GROUP BY status;
+
+SELECT orderNumber, SUM(priceEach*quantityOrdered) FROM orderdetails group by orderNumber;
+
+
+SELECT, INSERT, UPDATE, DELETE (DML)
+
+INSERT INTO employees (`employeeNumber`, `lastName`, `firstName`, `extension`, `email`, `officeCode`, `reportsTo`, `jobTitle`) VALUES ('5000', 'Masum', 'Ahmed', '302', 'masum@gmail.com', '6', '1001', 'Programmer')
+
+INSERT INTO employees VALUES ('5003', 'Shafin', 'Ahmed', '302', 'shafin@gmail.com', '6', '1001', 'Programmer')
+
+INSERT INTO employees VALUES ('5005', 'Shafin', 'Ahmed', '302', 'shafin@gmail.com', '6', '1001', 'Programmer'), ('5006', 'Shafin', 'Ahmed', '302', 'shafin@gmail.com', '6', '1001', 'Programmer')
+
+
+UPDATE employees SET lastName = 'Chowdhury', jobTitle = 'Assistant Programmer' WHERE employeeNumber = 5001
+
+DELETE FROM employees WHERE employeeNumber = 1002
+
+SELECT MIN(buyPrice) AS MinimumPrice FROM products
+SELECT MIN(buyPrice) AS 'Minimum Price' FROM products;
+
+SELECT customerNumber, customerName, country FROM customers WHERE country IN ('France', 'Australia', 'Norway')
+
+SELECT customerNumber, customerName, country FROM customers WHERE country NOT IN ('France', 'Australia', 'Norway')
+
+SELECT productCode, productName, buyPrice FROM products WHERE buyPrice BETWEEN 20 AND 40
+
+
+SELECT employeeNumber, lastName, firstName, city, country FROM employees AS e, offices AS o WHERE o.officeCode = e.officeCode
+
+
+create user 'nazrul'@'localhost' identified by 'abcd1234';
+drop user 'nazrul'@'localhost';
+
+rename user 'jason'@'localhost' to 'jasongilmore'@'localhost';
+
+grant select, insert on wdpf60.* to 'nazrul'@'localhost' identified by 'abcd1234';
+
+grant update on wdpf60.* to 'nazrul'@'localhost' identified by 'abcd1234';
+
+
+
+
+
+
